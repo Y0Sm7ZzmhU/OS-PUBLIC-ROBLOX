@@ -10,14 +10,12 @@
 	-- DO NOT TOUCH UNLESS TRYING TO HELP ME!
 	Debug = {
 		Notifications = true,
-		Offset = CFrame.new(-2.5,0,0),
-		LoopPlayerTP = false,
 	}
 }]]
 
 
 local _settings = _G.Settings
-local _debug = _settings.Debug
+local _debug = _settings.Debug or {}
 local players = game:GetService("Players")
 local starterGui = game:GetService("StarterGui")
 local replicatedStorage = game:GetService("ReplicatedStorage")
@@ -98,13 +96,11 @@ sendNotification({
 	["duration"] = .5,
 })
 while task.wait() do
-	character:SetPrimaryPartCFrame((ownerCharacter.PrimaryPart.CFrame*_debug.Offset) * CFrame.Angles(0,math.rad(180),0))
+	character:SetPrimaryPartCFrame((ownerCharacter.PrimaryPart.CFrame*CFrame.new(0,0,-2.8)) * CFrame.Angles(0,math.rad(180),0))
 	local distance = (ownerCharacter.PrimaryPart.Position-root.Position).Magnitude
 	
 	if distance <= 5 then
-		if not _settings.Debug.LoopPlayerTP then
-			break
-		end
+		break
 	end
 end
 sendNotification({
