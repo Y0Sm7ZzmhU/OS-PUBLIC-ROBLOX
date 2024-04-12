@@ -71,7 +71,7 @@ local function findPlayerFromID(id)
 		 if v.UserId == id then
 			_player = v 
 			if v.Character then 
-				_hasCharacter = true
+				_hasCharacter = v.Character
 			end
 		end
 	end
