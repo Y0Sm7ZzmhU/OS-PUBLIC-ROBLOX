@@ -1,4 +1,4 @@
-_G.Settings = {
+--[[_G.Settings = {
 	OwnerUserID = 1,
 	ItemsToDupe = {
 		"Radiant Elixir",
@@ -13,7 +13,7 @@ _G.Settings = {
 		Offset = CFrame.new(-2.5,0,0),
 		LoopPlayerTP = false,
 	}
-}
+}]]
 
 
 local _settings = _G.Settings
