@@ -156,7 +156,7 @@ for _, item in ownedItems do
 		})
 		while task.wait() do 
 			local currentAmount = getItemCount(itemName)
-			if currentAmount <= 0 then 
+			if storedCount[itemName]-currentAmount >= _settings.MaxAmountToDrop or currentAmount <= 0 then 
 				break
 			end
 			inventoryRemote:FireServer("Drop", itemName)
