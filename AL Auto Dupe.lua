@@ -141,12 +141,10 @@ end)
 
 task.wait(_settings.DupeWait)
 
-local storedCount = {}
 for _, item in ownedItems do 
 	local path = item.Path
 	local amount = item.Amount
 	local itemName = item.Name 
-	storedCount[itemName] = math.clamp(amount, 0, _settings.MaxAmountToDrop)
 	
 	if path.Parent ~= nil and amount > 0 then 
 		sendNotification({
@@ -156,7 +154,7 @@ for _, item in ownedItems do
 		})
 		while task.wait() do 
 			local currentAmount = getItemCount(itemName)
-			if storedCount[itemName]-currentAmount >= _settings.MaxAmountToDrop or currentAmount <= 0 then 
+			if amount-currentAmount >= _settings.MaxAmountToDrop or currentAmount <= 0 then 
 				break
 			end
 			inventoryRemote:FireServer("Drop", itemName)
