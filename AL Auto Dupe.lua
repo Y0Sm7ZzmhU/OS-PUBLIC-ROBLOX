@@ -24,6 +24,8 @@ local teleportService = game:GetService("TeleportService")
 local remotes = replicatedStorage:WaitForChild("Remotes")
 local inventoryRemote = remotes:WaitForChild("Information"):WaitForChild("InventoryManage")
 local updateHotbar = remotes:WaitForChild("Data"):WaitForChild("UpdateHotbar")
+local updateVolume = remotes:WaitForChild("Data"):WaitForChild("UpdateVolume")
+
 
 local player = players.LocalPlayer
 local inventory = player.Backpack:WaitForChild("Tools")
@@ -133,8 +135,7 @@ task.wait(1)
 assignSeparateThread(function()
 	while task.wait() do 
 		for i = 1,3 do 
-			updateHotbar:FireServer({["1"] = "\255"})
-			updateHotbar:FireServer({["\255"] = true})
+			updateVolume:FireServer("Combat", 0/0)
 		end 
 	end 
 end)
