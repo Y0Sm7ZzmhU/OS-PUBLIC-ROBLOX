@@ -21,11 +21,11 @@ local starterGui = game:GetService("StarterGui")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local teleportService = game:GetService("TeleportService")
 
+local senv = getsenv(players.LocalPlayer.PlayerGui:WaitForChild("Inventory"):WaitForChild("InventoryHandle"))
 local remotes = replicatedStorage:WaitForChild("Remotes")
 local inventoryRemote = remotes:WaitForChild("Information"):WaitForChild("InventoryManage")
 local updateHotbar = remotes:WaitForChild("Data"):WaitForChild("UpdateHotbar")
-local updateVolume = remotes:WaitForChild("Data"):WaitForChild("UpdateVolume")
-
+local FireServer = senv._G.FireServer
 
 local player = players.LocalPlayer
 local inventory = player.Backpack:WaitForChild("Tools")
@@ -135,7 +135,8 @@ task.wait(1)
 assignSeparateThread(function()
 	while task.wait() do 
 		for i = 1,3 do 
-			updateVolume:FireServer("Combat", 0/0)
+			FireServer(updateHotbar, {[1] = "\255"})
+			FireServer(updateHotbar, {[2] = "\255"})
 		end 
 	end 
 end)
