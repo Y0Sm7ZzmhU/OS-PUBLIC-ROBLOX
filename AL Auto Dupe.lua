@@ -21,7 +21,7 @@ local starterGui = game:GetService("StarterGui")
 local replicatedStorage = game:GetService("ReplicatedStorage")
 local teleportService = game:GetService("TeleportService")
 
-local senv = getsenv(players.LocalPlayer.PlayerGui:WaitForChild("Inventory"):WaitForChild("InventoryHandle"))
+local senv = getsenv(players.LocalPlayer:WaitForChild("PlayerGui"):WaitForChild("Inventory"):WaitForChild("InventoryHandle"))
 local remotes = replicatedStorage:WaitForChild("Remotes")
 local inventoryRemote = remotes:WaitForChild("Information"):WaitForChild("InventoryManage")
 local updateHotbar = remotes:WaitForChild("Data"):WaitForChild("UpdateHotbar")
