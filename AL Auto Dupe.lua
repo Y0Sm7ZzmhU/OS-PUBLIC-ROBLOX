@@ -165,4 +165,4 @@ for _, item in ownedItems do
 end
 task.wait(.2)
 player:Kick("On Purpose :3")
-teleportService:Teleport(game.PlaceId, player)
+teleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId)
