@@ -47,6 +47,7 @@ if not playerClass or playerClass == "None" then
         
         if class ~= "None" then 
             print("Auto dodge setup")
+            playerClass = class
             break
         end 
     end 
